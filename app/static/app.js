@@ -10,11 +10,11 @@ const entryCards = document.querySelectorAll("[data-view]");
 let activeView = "";
 
 function formatPrice(price) {
-  return Number(price) > 0 ? `¥${price}/月` : "价格面议";
+  return `¥${price}/月`;
 }
 
 function formatBudget(budget) {
-  return Number(budget) > 0 ? `预算 ¥${budget}/月` : "预算可沟通";
+  return `预算 ¥${budget}/月`;
 }
 
 function hasValue(value) {
@@ -72,6 +72,22 @@ function renderContact(listing) {
   return `<p class="listing-contact">${contactName}${listing.contact_method}</p>`;
 }
 
+function renderPrice(price, className = "listing-price") {
+  if (Number(price) <= 0) {
+    return "";
+  }
+
+  return `<strong class="${className}">${formatPrice(price)}</strong>`;
+}
+
+function renderBudget(budget) {
+  if (Number(budget) <= 0) {
+    return "";
+  }
+
+  return `<strong class="listing-price request-price">${formatBudget(budget)}</strong>`;
+}
+
 function renderImage(listing) {
   const imageUrl = listing.image_urls && listing.image_urls[0];
 
@@ -112,7 +128,7 @@ function renderListings(listings) {
             ${title ? `<h2>${title}</h2>` : ""}
             ${renderMeta(listing)}
           </div>
-          <strong class="listing-price">${formatPrice(listing.price)}</strong>
+          ${renderPrice(listing.price)}
         </div>
 
         <p class="listing-description listing-description--featured">${listing.description}</p>
@@ -153,7 +169,7 @@ function renderRentalRequests(rentalRequests) {
             <span class="request-badge">求租</span>
             ${renderRequestMeta(rentalRequest)}
           </div>
-          <strong class="listing-price request-price">${formatBudget(rentalRequest.budget)}</strong>
+          ${renderBudget(rentalRequest.budget)}
         </div>
 
         <p class="listing-description listing-description--featured">${rentalRequest.description}</p>

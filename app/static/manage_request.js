@@ -13,7 +13,7 @@ function statusText(status) {
 }
 
 function formatBudget(budget) {
-  return Number(budget) > 0 ? `预算 ¥${budget}/月` : "预算可沟通";
+  return `预算 ¥${budget}/月`;
 }
 
 function renderOwnerRequest(rentalRequest) {
@@ -24,7 +24,7 @@ function renderOwnerRequest(rentalRequest) {
           <h2>求租信息</h2>
           <p>${rentalRequest.location || "地点可沟通"}</p>
         </div>
-        <strong>${formatBudget(rentalRequest.budget)}</strong>
+        ${Number(rentalRequest.budget) > 0 ? `<strong>${formatBudget(rentalRequest.budget)}</strong>` : ""}
       </div>
 
       <p class="listing-description listing-description--featured">${rentalRequest.description}</p>

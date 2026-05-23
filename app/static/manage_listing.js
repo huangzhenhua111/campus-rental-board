@@ -14,7 +14,7 @@ function statusText(status) {
 }
 
 function formatPrice(price) {
-  return Number(price) > 0 ? `¥${price}/月` : "价格面议";
+  return `¥${price}/月`;
 }
 
 function renderOwnerListing(listing) {
@@ -25,7 +25,7 @@ function renderOwnerListing(listing) {
           <h2>${listing.title}</h2>
           <p>${listing.location} · ${listing.rental_type}</p>
         </div>
-        <strong>${formatPrice(listing.price)}</strong>
+        ${Number(listing.price) > 0 ? `<strong>${formatPrice(listing.price)}</strong>` : ""}
       </div>
 
       <p class="listing-description">${listing.description}</p>

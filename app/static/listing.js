@@ -8,7 +8,7 @@ function getListingId() {
 }
 
 function formatPrice(price) {
-  return Number(price) > 0 ? `¥${price}/月` : "价格面议";
+  return `¥${price}/月`;
 }
 
 function hasValue(value) {
@@ -93,7 +93,7 @@ function renderListingDetail(listing) {
           <h2>${listing.title}</h2>
           ${hasValue(listing.address) ? `<p>${listing.address}</p>` : ""}
         </div>
-        <strong>${formatPrice(listing.price)}</strong>
+        ${Number(listing.price) > 0 ? `<strong>${formatPrice(listing.price)}</strong>` : ""}
       </div>
 
       ${renderDetails(listing)}

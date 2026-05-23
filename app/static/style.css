@@ -535,6 +535,18 @@ label {
   font-weight: 700;
 }
 
+.field-note {
+  display: inline-flex;
+  width: fit-content;
+  margin-left: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 input,
 select,
 textarea {
