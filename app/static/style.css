@@ -172,6 +172,10 @@ pre {
   color: var(--accent);
 }
 
+.entry-card--active {
+  outline: 3px solid rgba(31, 94, 255, 0.14);
+}
+
 .filter-form {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr 0.9fr 1.3fr auto auto;
@@ -859,12 +863,37 @@ textarea:focus {
   }
 
   .filter-form,
-  .entry-grid,
   .form-grid,
   .optional-grid,
   .listing-details,
   .detail-images {
     grid-template-columns: 1fr;
+  }
+
+  .entry-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .entry-card {
+    min-height: 118px;
+    gap: 7px;
+    padding: 14px;
+  }
+
+  .entry-card span {
+    min-height: 24px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+
+  .entry-card strong {
+    font-size: 17px;
+  }
+
+  .entry-card small {
+    font-size: 12px;
+    line-height: 1.45;
   }
 
   .listing-card--with-image {

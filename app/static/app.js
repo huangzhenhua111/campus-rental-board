@@ -242,6 +242,12 @@ function showView(view) {
   }
 
   loadBoard();
+
+  const targetBoard = view === "listings" ? listingBoard : requestBoard;
+  targetBoard.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 
 filterForm.addEventListener("submit", (event) => {
