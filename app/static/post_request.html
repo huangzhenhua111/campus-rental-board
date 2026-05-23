@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>发布求租</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <h1>发布求租信息</h1>
+        <p>描述想找什么样的房子，留下联系方式即可。</p>
+      </div>
+      <a class="text-link" href="/">返回首页</a>
+    </header>
+
+    <section class="post-section post-section--focused">
+      <form id="request-form" class="listing-form">
+        <label>
+          求租描述
+          <textarea name="description" rows="6" placeholder="比如：女生求租山大东门附近单间，希望有空调，7月入住，预算1000左右" required></textarea>
+        </label>
+
+        <label>
+          联系方式
+          <input name="contact_method" type="text" placeholder="微信 / QQ / 电话" required />
+        </label>
+
+        <div class="form-grid">
+          <label>
+            期望地点
+            <input name="location" type="text" placeholder="东门 / 西门 / 校内 / 海边" />
+          </label>
+
+          <label>
+            期望价位
+            <input name="budget" type="number" placeholder="1000" />
+          </label>
+        </div>
+
+        <label>
+          特殊要求
+          <input name="requirements" type="text" placeholder="比如能养猫 / 独卫 / 可短租" />
+        </label>
+
+        <button type="submit" id="submit-request-btn">提交求租</button>
+        <p id="request-form-message" class="form-message"></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="success-modal" class="modal-backdrop" hidden>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
+      <div class="modal-header">
+        <div>
+          <h2 id="success-modal-title">求租发布成功</h2>
+          <p>请保存这个管理链接，之后下架求租信息需要用它。</p>
+        </div>
+        <button id="close-success-modal" class="icon-button" type="button" aria-label="关闭">×</button>
+      </div>
+
+      <label>
+        管理链接
+        <input id="manage-url-input" type="text" readonly />
+      </label>
+
+      <p id="copy-message" class="copy-message"></p>
+
+      <div class="modal-actions">
+        <button id="copy-manage-url" type="button">复制链接</button>
+        <a id="open-manage-url" class="secondary-link-button" href="#">打开管理页</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/post_request.js"></script>
+</body>
+</html>

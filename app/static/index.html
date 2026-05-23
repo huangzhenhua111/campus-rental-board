@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>校园租房</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <h1>校园租房信息板</h1>
+        <p>房源和求租信息分开浏览，发布后可用私密链接自行下架。</p>
+      </div>
+    </header>
+
+    <section class="entry-grid">
+      <button class="entry-card" type="button" data-view="listings">
+        <span>看房</span>
+        <strong>我要看房</strong>
+        <small>浏览学校附近转租、合租和整租信息</small>
+      </button>
+
+      <a class="entry-card" href="/post">
+        <span>发布</span>
+        <strong>我要发布房源</strong>
+        <small>粘贴群消息，上传图片，生成下架链接</small>
+      </a>
+
+      <button class="entry-card entry-card--request" type="button" data-view="requests">
+        <span>求租</span>
+        <strong>我要找求租学生</strong>
+        <small>查看学生发布的找房需求并主动联系</small>
+      </button>
+
+      <a class="entry-card entry-card--request" href="/post-request">
+        <span>发布</span>
+        <strong>我要发布求租信息</strong>
+        <small>描述需求和预算，留下联系方式</small>
+      </a>
+    </section>
+
+    <section class="toolbar filter-toolbar" id="filter-toolbar" hidden>
+      <form id="filter-form" class="filter-form">
+        <input name="location" type="text" placeholder="位置：东门 / 海边 / 校内" />
+        <input name="max_price" type="number" placeholder="最高价格" />
+        <select name="rental_type">
+          <option value="">全部类型</option>
+          <option value="单间">单间</option>
+          <option value="合租">合租</option>
+          <option value="整租">整租</option>
+          <option value="转租">转租</option>
+        </select>
+        <input name="keyword" type="text" placeholder="关键词：空调 / 独卫 / 近学校" />
+        <button type="submit">筛选</button>
+        <button type="button" id="clear-filter-btn" class="secondary-button">清空</button>
+      </form>
+    </section>
+
+    <section id="listing-board" class="board-section" hidden>
+      <div class="section-heading">
+        <h2>房源信息</h2>
+        <p>学校附近的转租、合租和整租。</p>
+      </div>
+      <section id="listing-list" class="listing-list">
+        <p class="empty-text">正在加载房源...</p>
+      </section>
+    </section>
+
+    <section id="request-board" class="board-section" hidden>
+      <div class="section-heading">
+        <h2>求租信息</h2>
+        <p>学生发布的找房需求，房东可以主动联系。</p>
+      </div>
+      <section id="request-list" class="listing-list">
+        <p class="empty-text">正在加载求租信息...</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

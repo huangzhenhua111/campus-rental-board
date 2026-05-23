@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>房源审核后台</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <header class="page-header">
+      <div>
+        <h1>房源审核后台</h1>
+        <p>查看、通过或下架房源。</p>
+      </div>
+      <div class="header-actions">
+        <a class="text-link" href="/">返回首页</a>
+        <button id="admin-logout-btn" class="secondary-button" type="button">退出登录</button>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <button id="admin-refresh-btn">刷新</button>
+    </section>
+
+    <section id="admin-listing-list" class="listing-list">
+      <p class="empty-text">正在加载房源...</p>
+    </section>
+  </main>
+
+  <script src="/static/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>管理员登录</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-panel">
+      <h1>管理员登录</h1>
+      <p>登录后可以审核、发布和下架房源。</p>
+
+      <form id="admin-login-form" class="listing-form">
+        <label>
+          管理员密码
+          <input name="password" type="password" autocomplete="current-password" required />
+        </label>
+
+        <button type="submit" id="admin-login-btn">登录</button>
+        <p id="admin-login-message" class="form-message"></p>
+      </form>
+
+      <a class="text-link" href="/">返回首页</a>
+    </section>
+  </main>
+
+  <script src="/static/admin_login.js"></script>
+</body>
+</html>
