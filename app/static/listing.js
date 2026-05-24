@@ -21,6 +21,23 @@ function renderSubtitle(listing) {
   return items.join(" · ");
 }
 
+function cleanTitle(listing) {
+  const title = String(listing.title || "").trim();
+  const location = String(listing.location || "").trim();
+  const descriptionTitle = String(listing.description || "").trim().replace(/\s+/g, " ").slice(0, 24);
+
+  if (
+    title &&
+    title !== "未注明位置房源" &&
+    title !== descriptionTitle &&
+    !(location && title === `${location}房源`)
+  ) {
+    return title;
+  }
+
+  return "房源详情";
+}
+
 function renderDetailItem(label, value) {
   if (!hasValue(value)) {
     return "";
@@ -82,7 +99,8 @@ function renderImages(imageUrls) {
 }
 
 function renderListingDetail(listing) {
-  detailTitle.textContent = listing.title;
+  const title = cleanTitle(listing);
+  detailTitle.textContent = title;
   detailSubtitle.textContent = renderSubtitle(listing);
 
   detailContent.innerHTML = `
@@ -91,7 +109,7 @@ function renderListingDetail(listing) {
     <section class="detail-panel">
       <div class="detail-header">
         <div>
-          <h2>${listing.title}</h2>
+          <h2>${title}</h2>
           ${hasValue(listing.address) ? `<p>${listing.address}</p>` : ""}
         </div>
         ${Number(listing.price) > 0 ? `<strong>${formatPrice(listing.price)}</strong>` : ""}

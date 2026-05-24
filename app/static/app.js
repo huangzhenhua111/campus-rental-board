@@ -24,11 +24,14 @@ function hasValue(value) {
 
 function cleanTitle(listing) {
   const title = String(listing.title || "").trim();
+  const location = String(listing.location || "").trim();
+  const descriptionTitle = String(listing.description || "").trim().replace(/\s+/g, " ").slice(0, 24);
 
   if (
     title &&
     title !== "未注明位置房源" &&
-    title !== String(listing.description || "").trim().replace(/\s+/g, " ").slice(0, 24)
+    title !== descriptionTitle &&
+    !(location && title === `${location}房源`)
   ) {
     return title;
   }

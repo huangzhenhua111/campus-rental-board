@@ -66,12 +66,9 @@ function getFormData(imageUrls) {
   const price = Number(formData.get("price")) || 0;
   const rentalType = String(formData.get("rental_type") || "").trim();
   const title = String(formData.get("title") || "").trim();
-  const fallbackTitle = description
-    ? description.replace(/\s+/g, " ").slice(0, 24)
-    : "房源信息";
 
   return {
-    title: title || (location ? `${location}房源` : fallbackTitle),
+    title,
     source: String(formData.get("source") || "").trim(),
     location: location || "未注明",
     address: String(formData.get("address") || "").trim() || "未注明",
