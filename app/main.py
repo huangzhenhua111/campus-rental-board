@@ -158,6 +158,10 @@ def health():
         "status":"ok"
     }
 
+@app.head("/api/health")
+def health_head():
+    return
+
 @app.post("/api/admin/login")
 def admin_login(request:Request,password:str=Form(...)):
     admin_password=os.getenv("ADMIN_PASSWORD")
