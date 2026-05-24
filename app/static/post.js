@@ -72,6 +72,7 @@ function getFormData(imageUrls) {
 
   return {
     title: title || (location ? `${location}房源` : fallbackTitle),
+    source: String(formData.get("source") || "").trim(),
     location: location || "未注明",
     address: String(formData.get("address") || "").trim() || "未注明",
     price,

@@ -92,6 +92,7 @@ def listing_to_response(listing: Listing) -> ListingResponse:
     return ListingResponse(
         id=listing.id,
         title=listing.title,
+        source=listing.source,
         location=listing.location,
         address=listing.address,
         price=listing.price,
@@ -181,6 +182,7 @@ def create_listing(
     owner_token=uuid4().hex
     db_listing = Listing(
         title=listing.title,
+        source=listing.source,
         location=listing.location,
         address=listing.address,
         price=listing.price,
@@ -213,6 +215,7 @@ def get_listings(
     location: str | None = None,
     max_price: int | None = None,
     rental_type: str | None = None,
+    source: str | None = None,
     keyword: str | None = None,
     session: Session = Depends(get_session),
 ):
@@ -228,6 +231,8 @@ def get_listings(
         statement=statement.where(Listing.price<=max_price)
     if rental_type:
         statement=statement.where(Listing.rental_type==rental_type)
+    if source:
+        statement=statement.where(Listing.source==source)
     if keyword:
         statement=statement.where(
             Listing.title.contains(keyword)

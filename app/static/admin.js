@@ -32,7 +32,7 @@ function renderAdminListings(listings) {
       <div class="listing-card__main">
         <div>
           <h2>${listing.title}</h2>
-          <p class="listing-meta">${listing.location} · ${listing.rental_type} · #${listing.id}</p>
+          <p class="listing-meta">${[listing.source, listing.location, listing.rental_type, `#${listing.id}`].filter(Boolean).join(" · ")}</p>
         </div>
         <strong class="listing-price">${formatPrice(listing.price)}</strong>
       </div>

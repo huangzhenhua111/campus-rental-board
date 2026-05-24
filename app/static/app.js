@@ -124,7 +124,7 @@ function renderListings(listings) {
       <div class="listing-card__body">
         <div class="listing-card__main">
           <div>
-            <span class="listing-badge">房源</span>
+            <span class="listing-badge">房源${hasValue(listing.source) ? ` · ${listing.source}` : ""}</span>
             ${title ? `<h2>${title}</h2>` : ""}
             ${renderMeta(listing)}
           </div>

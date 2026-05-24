@@ -23,7 +23,7 @@ function renderOwnerListing(listing) {
       <div class="detail-header">
         <div>
           <h2>${listing.title}</h2>
-          <p>${listing.location} · ${listing.rental_type}</p>
+          <p>${[listing.source, listing.location, listing.rental_type].filter(Boolean).join(" · ")}</p>
         </div>
         ${Number(listing.price) > 0 ? `<strong>${formatPrice(listing.price)}</strong>` : ""}
       </div>

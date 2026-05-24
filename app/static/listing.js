@@ -17,7 +17,7 @@ function hasValue(value) {
 }
 
 function renderSubtitle(listing) {
-  const items = [listing.location, listing.rental_type].filter(hasValue);
+  const items = [listing.source, listing.location, listing.rental_type].filter(hasValue);
   return items.join(" · ");
 }
 
@@ -37,6 +37,7 @@ function renderDetailItem(label, value) {
 function renderDetails(listing) {
   const items = [
     renderDetailItem("房源类型", listing.rental_type),
+    renderDetailItem("房源来源", listing.source),
     renderDetailItem("可入住", listing.available_from),
     renderDetailItem("租期", listing.lease_term),
   ].join("");

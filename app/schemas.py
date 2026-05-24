@@ -3,6 +3,7 @@ from sqlmodel import SQLModel, Field
 
 class ListingCreate(BaseModel):
     title: str = Field(description="房源标题")
+    source: str = Field(description="房源来源，比如学生转租、房东直租、中介/公寓、其他")
     location: str = Field(description="大致位置，比如学校东门、山大宿舍附近")
     address: str = Field(description="详细地址或小区名")
     price: int = Field(description="月租价格")
@@ -27,6 +28,7 @@ class ListingCreateResponse(ListingResponse):
 class Listing(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     title: str
+    source: str = "其他"
     location: str
     address: str
     price: int
